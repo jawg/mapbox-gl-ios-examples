@@ -1,260 +1,285 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HDf-KH-ijk">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="34P-Vi-roB">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Simple Map View Controller-->
-        <scene sceneID="fDV-lg-osw">
-            <objects>
-                <viewController storyboardIdentifier="Simple map" id="23W-R0-Hxd" customClass="SimpleMapViewController" customModule="JawgMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2jw-g4-J6U">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="r5o-l5-Y4D"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="5am-Hd-Rgu"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OI3-QR-nbJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1472" y="-713"/>
-        </scene>
-        <!--Add Marker View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Add a marker" id="BYZ-38-t0r" customClass="AddMarkerViewController" customModule="JawgMaps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOSJawgMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UvH-LR-H2W">
+                                <rect key="frame" x="62" y="215.99999999999997" width="269.33333333333331" height="420.33333333333326"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWp-Cx-ZqU">
+                                        <rect key="frame" x="0.0" y="0.0" width="269.33333333333331" height="34.333333333333336"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="SimpleMapViewController"/>
+                                        <connections>
+                                            <segue destination="4Hh-ZQ-s0i" kind="show" id="XFT-82-prf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNG-Fz-5x9">
+                                        <rect key="frame" x="0.0" y="64.333333333333314" width="269.33333333333331" height="34.333333333333343"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="AddMarkerViewController"/>
+                                        <connections>
+                                            <segue destination="LeZ-fY-ZdO" kind="show" id="PMQ-WV-Ue6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4k-Le-DKk">
+                                        <rect key="frame" x="0.0" y="128.66666666666669" width="269.33333333333331" height="34.333333333333343"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="AddGeometryViewControlller"/>
+                                        <connections>
+                                            <segue destination="QDE-qN-tiC" kind="show" id="Ieh-5b-Bms"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIr-y4-Gsu">
+                                        <rect key="frame" x="0.0" y="193" width="269.33333333333331" height="34.333333333333343"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="ChangeStyleViewController"/>
+                                        <connections>
+                                            <segue destination="CEN-1g-OAT" kind="show" id="E9x-Yz-oYq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtl-sp-WL0">
+                                        <rect key="frame" x="0.0" y="257.33333333333331" width="269.33333333333331" height="34.333333333333314"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="CustomStyleViewController"/>
+                                        <connections>
+                                            <segue destination="fGt-FY-PsC" kind="show" id="9rx-BQ-KXa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjo-Iq-TA7">
+                                        <rect key="frame" x="0.0" y="321.66666666666663" width="269.33333333333331" height="34.333333333333314"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="AddPopupViewController"/>
+                                        <connections>
+                                            <segue destination="dDy-SA-AN9" kind="show" id="8PV-df-hhg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6l-2n-ScH">
+                                        <rect key="frame" x="0.0" y="386" width="269.33333333333331" height="34.333333333333314"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="ChangeLanguageViewController"/>
+                                        <connections>
+                                            <segue destination="S8Y-ro-FcJ" kind="show" id="j5b-z4-fy4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UvH-LR-H2W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A0Q-o1-Hzg"/>
+                            <constraint firstItem="UvH-LR-H2W" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GrW-8K-oR7"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="N6i-Ba-Syg"/>
+                    <navigationItem key="navigationItem" id="uvt-Rx-tnr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-733" y="-589"/>
-        </scene>
-        <!--Change Language View Controller-->
-        <scene sceneID="ugY-1Y-V0x">
-            <objects>
-                <viewController storyboardIdentifier="Change language" id="gXU-yu-BQh" customClass="ChangeLanguageViewController" customModule="JawgMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xSn-aT-JsB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Bec-hY-3XN">
-                                <rect key="frame" x="0.0" y="646" width="414" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="gXU-yu-BQh" id="iX2-eT-E4W"/>
-                                    <outlet property="delegate" destination="gXU-yu-BQh" id="CXe-tX-xs3"/>
-                                </connections>
-                            </pickerView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Bec-hY-3XN" firstAttribute="leading" secondItem="edb-dV-W61" secondAttribute="leading" id="dCO-un-vMi"/>
-                            <constraint firstItem="Bec-hY-3XN" firstAttribute="trailing" secondItem="edb-dV-W61" secondAttribute="trailing" id="e5b-Xx-42w"/>
-                            <constraint firstItem="Bec-hY-3XN" firstAttribute="bottom" secondItem="edb-dV-W61" secondAttribute="bottom" id="tga-zK-k1Z"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="edb-dV-W61"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="4P6-Qg-ph9">
-                        <barButtonItem key="rightBarButtonItem" title="Other" id="3nD-x7-A5b">
-                            <connections>
-                                <action selector="selected:" destination="gXU-yu-BQh" id="8hK-yk-Drt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="changeLanguage" destination="3nD-x7-A5b" id="Hxc-JK-Z8z"/>
-                        <outlet property="languagePicker" destination="Bec-hY-3XN" id="BEF-sV-myC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ao6-td-X8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="25" y="-390"/>
-        </scene>
-        <!--Custom Style View Controller-->
-        <scene sceneID="SoD-he-8u5">
-            <objects>
-                <viewController storyboardIdentifier="Custom style" id="Jav-mk-xF3" customClass="CustomStyleViewController" customModule="JawgMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gn7-Kz-nK1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="vac-mU-0Tb"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="9za-mu-Ozu"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g0Y-WO-F9N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="25" y="508"/>
-        </scene>
-        <!--Add Popup View Controller-->
-        <scene sceneID="PI9-zP-QU0">
-            <objects>
-                <viewController storyboardIdentifier="Map with popup" id="12o-At-uwf" customClass="AddPopupViewController" customModule="JawgMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="x4R-Dk-1U2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="LBH-dr-AEd"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="9h6-Za-Ff3"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AKF-Y3-ZK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="726.08695652173924" y="68.973214285714278"/>
+            <point key="canvasLocation" x="983.96946564885491" y="-2.1126760563380285"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="8Ao-oW-zMD">
+        <scene sceneID="Px5-pk-NOb">
             <objects>
-                <navigationController id="HDf-KH-ijk" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6kA-Wc-Ed4">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="34P-Vi-roB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Umg-Oa-JIs">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="m03-0O-f2f" kind="relationship" relationship="rootViewController" id="TrH-de-8ay"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jLK-cM-z7C"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hpb-73-eEM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lfs-jA-Dff" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2243" y="44"/>
+            <point key="canvasLocation" x="57.251908396946561" y="-2.1126760563380285"/>
         </scene>
-        <!--JawgMaps-->
-        <scene sceneID="4qG-fW-U9a">
+        <!--Simple Map View Controller-->
+        <scene sceneID="4ny-Gk-nwg">
             <objects>
-                <viewController id="m03-0O-f2f" customClass="ViewController" customModule="JawgMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xUC-Ue-rCd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController storyboardIdentifier="Simple map" id="4Hh-ZQ-s0i" customClass="SimpleMapViewController" customModule="iOSJawgMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2n6-bK-whi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uNa-NS-WVZ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JNS-JL-iW6">
-                                    <size key="itemSize" width="200" height="200"/>
-                                    <size key="estimatedItemSize" width="200" height="200"/>
-                                    <size key="headerReferenceSize" width="50" height="200"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="qYX-hL-9bZ" customClass="CollectionViewCell" customModule="JawgMaps" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="200" width="200" height="200"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wYh-zq-1I2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR0-Vf-reO">
-                                                    <rect key="frame" x="4" y="95" width="192" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outlet property="viewImage" destination="wYh-zq-1I2" id="Fai-NR-FDJ"/>
-                                            <outlet property="viewLabel" destination="rR0-Vf-reO" id="9cD-0A-bTX"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HeaderCollectionReusableView" id="LHZ-oL-iAs" customClass="HeaderCollectionReusableView" customModule="JawgMaps" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
-                                <connections>
-                                    <outlet property="dataSource" destination="m03-0O-f2f" id="Bou-4u-e61"/>
-                                    <outlet property="delegate" destination="m03-0O-f2f" id="44H-Cd-RkZ"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="uNa-NS-WVZ" firstAttribute="centerX" secondItem="xUC-Ue-rCd" secondAttribute="centerX" id="Llh-pX-Qgf"/>
-                            <constraint firstItem="uNa-NS-WVZ" firstAttribute="bottom" secondItem="5hf-aT-ZJF" secondAttribute="bottom" id="WYF-rF-TBn"/>
-                            <constraint firstItem="uNa-NS-WVZ" firstAttribute="leading" secondItem="5hf-aT-ZJF" secondAttribute="leading" id="bkG-NX-kca"/>
-                            <constraint firstItem="uNa-NS-WVZ" firstAttribute="top" secondItem="5hf-aT-ZJF" secondAttribute="top" id="xEB-TX-8oI"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="5hf-aT-ZJF"/>
+                        <viewLayoutGuide key="safeArea" id="zqC-op-PPY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="JawgMaps" id="ENd-Hq-Qd6"/>
-                    <connections>
-                        <outlet property="collectionView" destination="uNa-NS-WVZ" id="k3R-0t-OBW"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="nY3-nt-zYo"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C8I-CL-bhd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="skg-iM-HKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1472.4637681159422" y="43.526785714285715"/>
+            <point key="canvasLocation" x="1802" y="-898"/>
+        </scene>
+        <!--Add Marker View Controller-->
+        <scene sceneID="ddg-Tq-jeT">
+            <objects>
+                <viewController storyboardIdentifier="Add a marker" id="LeZ-fY-ZdO" customClass="AddMarkerViewController" customModule="iOSJawgMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dob-j1-TAf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ElJ-nK-1zG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3Ky-gv-AhS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XER-1c-3Wn" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2544" y="-612"/>
         </scene>
         <!--Add Geometry View Controller-->
-        <scene sceneID="IVv-dI-tye">
+        <scene sceneID="Uhv-zc-2xV">
             <objects>
-                <viewController storyboardIdentifier="Add a geometry" id="zPM-8c-i59" customClass="AddGeometryViewController" customModule="JawgMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EiX-RD-MhQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController storyboardIdentifier="Add a geometry" id="QDE-qN-tiC" customClass="AddGeometryViewController" customModule="iOSJawgMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hrt-xC-iE5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="fB4-Ft-m6r"/>
+                        <viewLayoutGuide key="safeArea" id="s6e-7q-MpE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="t1N-fQ-FKs"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e4M-nu-Kim" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Snu-CE-Vp4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1364" y="832"/>
+            <point key="canvasLocation" x="3321" y="-287"/>
         </scene>
-        <!--Change Style View Controller-->
-        <scene sceneID="5pO-au-sfD">
+        <!--Custom Style View Controller-->
+        <scene sceneID="xEA-7J-hM1">
             <objects>
-                <viewController storyboardIdentifier="Change style" id="EB4-pG-vn2" customClass="ChangeStyleViewController" customModule="JawgMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eZN-dp-qcW" customClass="ViewCo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController storyboardIdentifier="Custom style" id="fGt-FY-PsC" customClass="CustomStyleViewController" customModule="iOSJawgMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DAA-W2-aOC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aBV-cw-WAV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8yC-Tb-rgd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dlm-mD-bDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3320" y="477"/>
+        </scene>
+        <!--Add Popup View Controller-->
+        <scene sceneID="nGE-wh-3EF">
+            <objects>
+                <viewController storyboardIdentifier="Map with popup" id="dDy-SA-AN9" customClass="AddPopupViewController" customModule="iOSJawgMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UJP-3C-Oq2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uuv-Uv-WtG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="V5x-Bt-JFH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f8q-Nl-y5Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2543" y="799"/>
+        </scene>
+        <!--Change Language View Controller-->
+        <scene sceneID="RO0-5I-yHs">
+            <objects>
+                <viewController storyboardIdentifier="Change language" id="S8Y-ro-FcJ" customClass="ChangeLanguageViewController" customModule="iOSJawgMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Qg-Op-C6b">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Ruf-6b-cT6">
-                                <rect key="frame" x="0.0" y="646" width="414" height="216"/>
+                            <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="FmS-AT-l7A">
+                                <rect key="frame" x="0.0" y="602" width="393" height="216"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="EB4-pG-vn2" id="fcU-DI-d0W"/>
-                                    <outlet property="delegate" destination="EB4-pG-vn2" id="f0u-ix-QWa"/>
+                                    <outlet property="dataSource" destination="S8Y-ro-FcJ" id="Qe3-z5-dMZ"/>
+                                    <outlet property="delegate" destination="S8Y-ro-FcJ" id="ixs-AK-15r"/>
                                 </connections>
                             </pickerView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="q5K-U8-0Fe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ruf-6b-cT6" firstAttribute="bottom" secondItem="NUg-em-k0q" secondAttribute="bottom" id="8dC-Bm-u5K"/>
-                            <constraint firstItem="Ruf-6b-cT6" firstAttribute="trailing" secondItem="NUg-em-k0q" secondAttribute="trailing" id="Rjq-yv-pgu"/>
-                            <constraint firstItem="Ruf-6b-cT6" firstAttribute="leading" secondItem="NUg-em-k0q" secondAttribute="leading" id="aV4-Vl-bzc"/>
+                            <constraint firstItem="FmS-AT-l7A" firstAttribute="leading" secondItem="q5K-U8-0Fe" secondAttribute="leading" id="K11-7H-M5j"/>
+                            <constraint firstItem="FmS-AT-l7A" firstAttribute="bottom" secondItem="q5K-U8-0Fe" secondAttribute="bottom" id="eT0-zL-K10"/>
+                            <constraint firstItem="FmS-AT-l7A" firstAttribute="trailing" secondItem="q5K-U8-0Fe" secondAttribute="trailing" id="fyR-Ka-kBE"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="NUg-em-k0q"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Cw5-pz-mIv">
-                        <barButtonItem key="rightBarButtonItem" title="Other" id="iBP-w9-r75">
+                    <navigationItem key="navigationItem" id="GTt-FB-mdQ">
+                        <barButtonItem key="rightBarButtonItem" title="Other" id="FLT-pC-MTK">
                             <connections>
-                                <action selector="selected:" destination="EB4-pG-vn2" id="v0O-OK-D6f"/>
+                                <action selector="selected:" destination="S8Y-ro-FcJ" id="hEI-ol-a8g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="changeStyle" destination="iBP-w9-r75" id="eqU-SY-jyE"/>
-                        <outlet property="stylePicker" destination="Ruf-6b-cT6" id="SVv-mH-Hy6"/>
+                        <outlet property="changeLanguage" destination="FLT-pC-MTK" id="RGk-AY-0gg"/>
+                        <outlet property="languagePicker" destination="FmS-AT-l7A" id="BWL-ff-uTu"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fpj-NY-vqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YT5-Xg-t5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-733" y="591"/>
+            <point key="canvasLocation" x="1801" y="1106"/>
+        </scene>
+        <!--Change Style View Controller-->
+        <scene sceneID="2i6-Uu-fqI">
+            <objects>
+                <viewController storyboardIdentifier="Change style" id="CEN-1g-OAT" customClass="ChangeStyleViewController" customModule="iOSJawgMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wSd-1Q-iye" customClass="ViewCo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4gj-78-KPC">
+                                <rect key="frame" x="0.0" y="602" width="393" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CEN-1g-OAT" id="74y-ZO-X4E"/>
+                                    <outlet property="delegate" destination="CEN-1g-OAT" id="WoR-G3-m9j"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Izt-4R-BL0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4gj-78-KPC" firstAttribute="leading" secondItem="Izt-4R-BL0" secondAttribute="leading" id="dx9-o3-Cij"/>
+                            <constraint firstItem="4gj-78-KPC" firstAttribute="trailing" secondItem="Izt-4R-BL0" secondAttribute="trailing" id="jpA-QM-axS"/>
+                            <constraint firstItem="4gj-78-KPC" firstAttribute="bottom" secondItem="Izt-4R-BL0" secondAttribute="bottom" id="tRz-qO-vBs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xuW-Ug-E4X">
+                        <barButtonItem key="rightBarButtonItem" title="Other" id="3NY-Ha-spM">
+                            <connections>
+                                <action selector="selected:" destination="CEN-1g-OAT" id="GaA-18-XOV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="changeStyle" destination="3NY-Ha-spM" id="opo-3f-1rX"/>
+                        <outlet property="stylePicker" destination="4gj-78-KPC" id="RL1-ed-sz2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7k-Ur-SQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4160" y="43"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

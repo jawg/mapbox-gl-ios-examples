@@ -1,6 +1,6 @@
-# Integrating Jawg Maps with Mapbox GL iOS : Examples
+# Integrating Jawg Maps with MapLibre GL iOS : Examples
 
-Welcome to our example repository to integrate Jawg with Mapbox GL iOS.
+Welcome to our example repository to integrate Jawg with MapLibre GL iOS.
 
 Don't forget to set your access token in [ViewController.swift](./iOSJawgMaps/ViewController.swift).
 If you don't have any access token yet, get one on [Jawg Lab](https://jawg.io/lab).

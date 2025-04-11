@@ -1,41 +1,55 @@
+import MapLibre
 import UIKit
-import Mapbox
 
-class AddPopupViewController: UIViewController, MGLMapViewDelegate {
-
-    // Update the token here if you want to customize the token for this controller in your own project.
-    // Otherwise update the value at the top of the main controller: ViewController.swift.
-    // let accessToken = "YOUR_ACCESS_TOKEN"
-
-    var mapView = MGLMapView()
+class AddPopupViewController: UIViewController, MLNMapViewDelegate {
+    var mapView = MLNMapView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Initialize title
         title = "Custom Popup"
-        // Initialize map
-        let url = URL(string: "https://api.jawg.io/styles/jawg-sunny.json?access-token="+accessToken)
-        mapView = MGLMapView(frame: view.bounds, styleURL: url)
+
+        let url = URL(
+            string: "https://api.jawg.io/styles/jawg-sunny.json?access-token="
+                + accessToken)
+        mapView = MLNMapView(frame: view.bounds, styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
         mapView.logoView.isHidden = true
         // Set the map’s center coordinate and zoom level.
-        mapView.setCenter(CLLocationCoordinate2D(latitude: -33.865143, longitude: 151.209900), zoomLevel: 11, animated: false)
+        mapView.setCenter(
+            CLLocationCoordinate2D(latitude: -33.865143, longitude: 151.209900),
+            zoomLevel: 11, animated: false)
         // Add an annotation
-        let operaHouseAnnotation = CustomAnnotation(coordinate: CLLocationCoordinate2D(latitude: -33.85416325, longitude: 151.20916),title: "Opera House",subtitle: "The most beautiful opera house in the world!",image: UIImage(named: "operaHouse.jpeg")!)
+        let operaHouseAnnotation = CustomAnnotation(
+            coordinate: CLLocationCoordinate2D(
+                latitude: -33.85416325, longitude: 151.20916),
+            title: "Opera House",
+            subtitle: "The most beautiful opera house in the world!",
+            image: UIImage(named: "operaHouse.jpeg")!)
         mapView.addAnnotation(operaHouseAnnotation)
         // Add an annotation
-        let sydneyParkAnnotation = CustomAnnotation(coordinate: CLLocationCoordinate2D(latitude: -33.9105284, longitude: 151.1846209),title: "Sydney Park",subtitle: "The open space is made of 40 hectares of lush grass",image: UIImage(named: "sydneyPark.jpeg")!)
+        let sydneyParkAnnotation = CustomAnnotation(
+            coordinate: CLLocationCoordinate2D(
+                latitude: -33.9105284, longitude: 151.1846209),
+            title: "Sydney Park",
+            subtitle: "The open space is made of 40 hectares of lush grass",
+            image: UIImage(named: "sydneyPark.jpeg")!)
         mapView.addAnnotation(sydneyParkAnnotation)
         // Add an annotation
-        let bondiBeachAnnotation = CustomAnnotation(coordinate: CLLocationCoordinate2D(latitude: -33.890842, longitude: 151.274292),title: "Bondi Beach",subtitle: "Do not forget your surfboard",image: UIImage(named: "bondiBeach.jpeg")!)
+        let bondiBeachAnnotation = CustomAnnotation(
+            coordinate: CLLocationCoordinate2D(
+                latitude: -33.890842, longitude: 151.274292),
+            title: "Bondi Beach", subtitle: "Do not forget your surfboard",
+            image: UIImage(named: "bondiBeach.jpeg")!)
         mapView.addAnnotation(bondiBeachAnnotation)
         // Add the map to the view
         view.addSubview(mapView)
     }
 
-    // This delegate method is where you tell the map to load a view for a specific annotation. To load a static MGLAnnotationImage, you would use `-mapView:imageForAnnotation:`.
-    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+    // This delegate method is where you tell the map to load a view for a specific annotation. To load a static MLNAnnotationImage, you would use `-mapView:imageForAnnotation:`.
+    func mapView(_ mapView: MLNMapView, viewFor annotation: MLNAnnotation)
+        -> MLNAnnotationView?
+    {
         // This example is only concerned with point annotations.
         guard annotation is CustomAnnotation else {
             return nil
@@ -43,28 +57,38 @@ class AddPopupViewController: UIViewController, MGLMapViewDelegate {
         // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
         let reuseIdentifier = "\(annotation.coordinate.longitude)"
         // For better performance, always try to reuse existing annotations.
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(
+            withIdentifier: reuseIdentifier)
         // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
-            annotationView = CustomAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView = CustomAnnotationView(
+                annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView!.bounds = CGRect(x: 0, y: 0, width: 40, height: 40)
             // Set the annotation view’s background color to a value determined by its longitude.
             let hue = CGFloat(annotation.coordinate.longitude) / 100
-            annotationView!.backgroundColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
+            annotationView!.backgroundColor = UIColor(
+                hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
         }
         return annotationView
     }
 
-    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+    func mapView(
+        _ mapView: MLNMapView,
+        annotationCanShowCallout annotation: MLNAnnotation
+    ) -> Bool {
         return true
     }
 
-    func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
+    func mapView(
+        _ mapView: MLNMapView, calloutViewFor annotation: MLNAnnotation
+    ) -> MLNCalloutView? {
         // Instantiate and return our custom callout view.
         return CustomCalloutView(annotation: annotation as! CustomAnnotation)
     }
 
-    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+    func mapView(
+        _ mapView: MLNMapView, tapOnCalloutFor annotation: MLNAnnotation
+    ) {
         // Optionally handle taps on the callout.
         print("Tapped the callout for: \(annotation)")
         // Hide the callout.
@@ -72,14 +96,17 @@ class AddPopupViewController: UIViewController, MGLMapViewDelegate {
     }
 }
 
-class CustomAnnotation: NSObject, MGLAnnotation {
+class CustomAnnotation: NSObject, MLNAnnotation {
 
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subtitle: String?
     var image: UIImage
 
-    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String, image: UIImage) {
+    init(
+        coordinate: CLLocationCoordinate2D, title: String, subtitle: String,
+        image: UIImage
+    ) {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle
@@ -87,10 +114,10 @@ class CustomAnnotation: NSObject, MGLAnnotation {
     }
 }
 
-// MGLAnnotationView subclass
-class CustomAnnotationView: MGLAnnotationView {
+// MLNAnnotationView subclass
+class CustomAnnotationView: MLNAnnotationView {
 
-    override init(annotation: MGLAnnotation?, reuseIdentifier: String?) {
+    override init(annotation: MLNAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
     }
 
@@ -116,31 +143,32 @@ class CustomAnnotationView: MGLAnnotationView {
     }
 }
 
-class CustomCalloutView: UIView, MGLCalloutView {
+class CustomCalloutView: UIView, MLNCalloutView {
 
-    var representedObject: MGLAnnotation
+    var representedObject: MLNAnnotation
     // Required views but unused for now, they can just relax
     lazy var leftAccessoryView = UIView()
     lazy var rightAccessoryView = UIView()
 
-    weak var delegate: MGLCalloutViewDelegate?
+    weak var delegate: MLNCalloutViewDelegate?
 
     //MARK: Subviews -
-    let titleLabel:UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
         return label
     }()
 
-    let subtitleLabel:UILabel = {
+    let subtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    let imageView:UIImageView = {
-        let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+    let imageView: UIImageView = {
+        let imageview = UIImageView(
+            frame: CGRect(x: 0, y: 0, width: 25, height: 25))
         imageview.translatesAutoresizingMaskIntoConstraints = false
         imageview.contentMode = .scaleAspectFit
         return imageview
@@ -149,7 +177,10 @@ class CustomCalloutView: UIView, MGLCalloutView {
     required init(annotation: CustomAnnotation) {
         self.representedObject = annotation
         // init with 100% of width and 200px tall
-        super.init(frame: CGRect(origin: CGPoint(), size: CGSize(width: UIScreen.main.bounds.width, height: 200)))
+        super.init(
+            frame: CGRect(
+                origin: CGPoint(),
+                size: CGSize(width: UIScreen.main.bounds.width, height: 200)))
 
         self.titleLabel.text = self.representedObject.title ?? ""
         self.subtitleLabel.text = self.representedObject.subtitle ?? ""
@@ -169,31 +200,55 @@ class CustomCalloutView: UIView, MGLCalloutView {
         self.addSubview(subtitleLabel)
         self.addSubview(imageView)
         // Add Constraints to subviews
-        let spacing:CGFloat = 8.0
-        imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: spacing).isActive = true
-        imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: spacing).isActive = true
+        let spacing: CGFloat = 8.0
+        imageView.topAnchor.constraint(
+            equalTo: self.topAnchor, constant: spacing
+        ).isActive = true
+        imageView.leftAnchor.constraint(
+            equalTo: self.leftAnchor, constant: spacing
+        ).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 52.0).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 52.0).isActive = true
 
-        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: spacing).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: self.imageView.rightAnchor, constant: spacing * 2).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -spacing).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        titleLabel.topAnchor.constraint(
+            equalTo: self.topAnchor, constant: spacing
+        ).isActive = true
+        titleLabel.leftAnchor.constraint(
+            equalTo: self.imageView.rightAnchor, constant: spacing * 2
+        ).isActive = true
+        titleLabel.rightAnchor.constraint(
+            equalTo: self.rightAnchor, constant: -spacing
+        ).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 50.0).isActive =
+            true
 
-        subtitleLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: spacing).isActive = true
-        subtitleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: spacing).isActive = true
-        subtitleLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -spacing).isActive = true
-        subtitleLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        subtitleLabel.topAnchor.constraint(
+            equalTo: self.titleLabel.bottomAnchor, constant: spacing
+        ).isActive = true
+        subtitleLabel.leftAnchor.constraint(
+            equalTo: self.leftAnchor, constant: spacing
+        ).isActive = true
+        subtitleLabel.rightAnchor.constraint(
+            equalTo: self.rightAnchor, constant: -spacing
+        ).isActive = true
+        subtitleLabel.heightAnchor.constraint(equalToConstant: 20.0).isActive =
+            true
     }
 
-    func presentCallout(from rect: CGRect, in view: UIView, constrainedTo constrainedRect: CGRect, animated: Bool) {
+    func presentCallout(
+        from rect: CGRect, in view: UIView,
+        constrainedTo constrainedRect: CGRect, animated: Bool
+    ) {
         //Center bottom
-        self.center = view.center.applying(CGAffineTransform(translationX: 0, y: view.bounds.height/2 - self.bounds.height/2))
+        self.center = view.center.applying(
+            CGAffineTransform(
+                translationX: 0,
+                y: view.bounds.height / 2 - self.bounds.height / 2))
         view.addSubview(self)
     }
 
     func dismissCallout(animated: Bool) {
-        if (animated){
+        if animated {
             //Implement animation here
             removeFromSuperview()
         } else {
